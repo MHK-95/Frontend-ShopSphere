@@ -1,0 +1,59 @@
+
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" [routerLink]="['/home']">ShopSphere</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+              <!--
+              <li class="nav-item"><a class="nav-link" [routerLink]="['/authentication']">Login</a></li>
+              -->
+              <li class="nav-item"><a class="nav-link" [routerLink]="['/products','all products']">All Products</a></li>
+              <li class="nav-item">
+                <div class="dropdown show">
+                  <a class="nav-link btn dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/products','men\'s clothing']">Men's Clothing</a>
+                    <a class="dropdown-item" [routerLink]="['/products','women\'s clothing']">Women's Clothing</a>
+                    <a class="dropdown-item" [routerLink]="['/products','jewelery']">Jewelery</a>
+                    <a class="dropdown-item" [routerLink]="['/products','electronics']">Electronics</a>
+                  </div>                 
+                </div>
+              </li>
+          </ul>
+          
+          <form class="d-flex">
+            <div *ngIf="!isLoggedIn(); else loggedOut">
+              <button type="button" class="btn btn-warning" [routerLink]="['/authentication']">
+                Login
+              </button>
+            </div>
+
+            <ng-template #loggedOut>
+              <button type="button" class="btn btn-warning" (click)="logoutButton()">
+                Logout
+              </button>
+            </ng-template>
+
+            <div *ngIf="isAdmin()">
+            <button class="btn btn-outline-dark ms-3" type="submit" [routerLink]="['/profile', this.getUser().jwt]">
+              <i class="bi-person-circle me-1"></i>
+                Users
+            </button>
+            </div>
+
+              <button class="btn btn-outline-dark ms-3" type="button" [routerLink]="['/cart']">
+                <i class="bi-cart-fill me-1"></i>
+                Cart
+                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+            </button>
+
+          </form>
+      </div>
+  </div>
+</nav>
+
+

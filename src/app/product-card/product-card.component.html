@@ -1,0 +1,31 @@
+<div class="col mb-5">
+<div class="card shadow p-3 mb-5 bg-body rounded">
+  <a [routerLink]='["/product-details", product.id]'>
+  <img class="card-img-top" src="{{product.image}}" alt="..." />
+  </a>
+  <div class="card-body p-4">
+      <div class="text-center">
+          <h4 class="fw-bolder card-title">{{product.title}}</h4>
+
+          <!-- Rating -->
+
+          <div class="d-flex justify-content-center small text-warning mb-2">
+            <div *ngFor="let item of createFilledStars(product.rating.rate)">
+              <div class="bi-star-fill"></div>
+            </div>
+            <div *ngFor="let item of createEmptyStars(product.rating.rate)">
+                <div class="bi-star"></div>
+            </div>
+            <p class="text-black ms-1 ">({{product.rating.count}})</p>
+          </div>
+
+            
+
+          ${{product.price}}
+      </div>
+  </div>
+  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+      <div class="text-center"><button type="button" class="btn btn-outline-dark mt-auto" (click)="addToCart()">Add to cart</button></div>
+  </div>
+</div>
+</div>

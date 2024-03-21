@@ -1,0 +1,49 @@
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start bg-light">
+  <style>
+
+  </style>
+
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Sign up now</h2>
+            <form (ngSubmit)="onSubmit()">
+
+              <div class="form-outline mb-4">
+                <input type="test" id="form3Example3" class="form-control" [(ngModel)]="user.username" name="username"/>
+                <label class="form-label" for="form3Example3">Username</label>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="test" id="form3Example3" class="form-control" [(ngModel)]="user.email" name="email"/>
+                <label class="form-label" for="form3Example3">email</label>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="password" id="form3Example3" class="form-control" [(ngModel)]="user.password" name="password"/>
+                <label class="form-label" for="form3Example3">password</label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-block mb-4">
+                Sign up
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="assets/images/smartphone-camera.jpg" class="w-100 rounded-4 shadow-4"
+          alt="" />
+      </div>
+    </div>
+  </div>
+
+</section>
